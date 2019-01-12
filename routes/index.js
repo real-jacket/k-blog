@@ -1,10 +1,17 @@
-module.exports = function(app){
-  app.get('/',function(req,res){
+const signup = require('./signup')
+const signin = require('./signin')
+const signout = require('./signout')
+const comments = require('./comments')
+const posts = require('./comments')
+
+// eslint-disable-next-line func-names
+module.exports = function (app) {
+  app.get('/', (req, res) => {
     res.redirect('/posts')
   })
-  app.use('/signup',require('./signup'))
-  app.use('/signin',require('./signin'))
-  app.use('/signout',require('./signout'))
-  app.use('/comments',require('./comments'))
-  app.use('/posts',require('./posts'))
+  app.use(signup)
+  app.use(signin)
+  app.use(signout)
+  app.use(comments)
+  app.use(posts)
 }

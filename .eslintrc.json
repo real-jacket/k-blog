@@ -1,3 +1,12 @@
 {
-    "extends": "standard"
+    "extends": "airbnb-base",
+    "rules": {
+      "semi":[
+        "error",
+        "never"
+      ],
+      "consistent-return":[0, { "treatUndefinedAsUnspecified": true }],
+      "func-names": [2, "as-needed"],
+      "no-console":"off"
+    }
 }

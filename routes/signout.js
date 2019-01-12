@@ -1,10 +1,12 @@
 const express = require('express')
+
 const router = express.Router()
 
-const checkLogin = require('../middlewares/check').checkLogin
+const { checkLogin } = require('../middlewares/check')
 
-router.get('/',checkLogin,function(req,res,next){
+router.get('/', checkLogin, (req, res, next) => {
   res.send('登出')
+  next()
 })
 
 module.exports = router
