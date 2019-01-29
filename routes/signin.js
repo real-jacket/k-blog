@@ -12,6 +12,7 @@ router.get('/', checkNotLogin, (req, res, next) => {
 router.post('/', checkNotLogin, (req, res, next) => {
   res.send('登录')
   next()
+  console.log('测试')
 })
 
 module.exports = router
