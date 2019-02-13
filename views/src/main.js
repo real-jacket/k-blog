@@ -1,8 +1,18 @@
 import Vue from 'vue'
 import App from './App.vue'
+import router from './router'
+import store from './store'
 
+console.log(process.env)
 Vue.config.productionTip = false
 
+if (process.env.NODE_ENV !== 'production') {
+  var VConsole = require('vconsole/dist/vconsole.min.js')
+  var vConsole = new VConsole()
+}
+
 new Vue({
-  render: h => h(App),
+  router,
+  store,
+  render: h => h(App)
 }).$mount('#app')
