@@ -60,10 +60,18 @@ module.exports = {
   devServer:{
 
     open: true, // 是否自动打开浏览器
-    host:'0.0.0.0', // 指定使用一个host。默认为 localhost
+    host:'127.0.0.1', // 指定使用一个host。默认为 localhost
     port:8585, // 端口地址
     https: false, // 使用 https 提供服务
-    proxy: null, // string | Object 代理设置
+    proxy: { // string | Object 代理设置
+
+      // 接口时 ‘/repos’ 开头的才代理
+      '/repos':{
+        target:'https://api.github.com', // 目标地址
+        changeOrigin:true, // 是否改变源地址
+        // pathRewrite:{'^/api':''}
+      }
+    },
 
     // 提供在服务器内部的其他中间件之前执行自定义中间件的能力
     before: app =>{
